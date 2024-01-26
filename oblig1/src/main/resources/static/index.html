@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kinobiletter</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <main>
@@ -18,20 +18,25 @@
         <option value="Avatar">Avatar</option>
     </select>
     <br><br>
-    <label for="antall">Antall </label>
+    <label for="antall" class="label-antall">Antall </label>
     <input type="number" id="antall" name="antall">
+    <label for="telefonnr" id="antallMangler" class="label-mangler"></label>
     <br><br>
     <label for="fornavn">Fornavn </label>
     <input type="text" id="fornavn" name="fornavn">
+    <label for="telefonnr" id="fornavnMangler" class="label-mangler"></label>
     <br>
     <label for="etternavn">Etternavn </label>
     <input type="text" id="etternavn" name="etternavn">
+    <label for="telefonnr" id="etternavnMangler" class="label-mangler"></label>
     <br>
     <label for="telefonnr">Telefonnr </label>
     <input type="text" id="telefonnr" name="telefonnr">
+    <label for="telefonnr" id="telefonnrMangler" class="label-mangler"></label>
     <br>
     <label for="epost">Epost </label>
     <input type="text" id="epost" name="epost">
+    <label for="telefonnr" id="epostMangler" class="label-mangler"></label>
     <br>
     <button id="kjøpBilettKnapp" onclick="kjopBilett()">Kjøp bilett</button>
     <br><br>
@@ -39,6 +44,6 @@
     <ul id="filmListe"></ul>
     <button id="slettBiletterKnapp" onclick="slettBiletter()">Slett alle bilettene</button>
 </main>
-<script src="../static/index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

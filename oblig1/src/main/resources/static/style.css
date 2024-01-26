@@ -1,6 +1,46 @@
 input[type='number']{
     width: 30px;
 }
+label{
+    display: inline-block;
+    width: 70px;
+}
+.label-antall{
+    width: 45px;
+}
+.label-mangler{
+    width: 230px;
+    color: red;
+}
 input{
-    margin: 2px;
+    margin-bottom: 10px;
+}
+input:hover{
+    border-top-color: darkgrey;
+    border-left-color: darkgrey;
+    border-bottom-color: dimgray;
+    border-right-color: dimgray;
+}
+body{
+    font-weight: bold;
+    font-family: "Times New Roman";
+}
+button{
+    border-radius: 5px;
+    border-bottom-color: lightgrey;
+    border-right-color: lightgrey;
+    border-top-color: grey;
+    border-left-color: grey;
+    border-width: thin;
+}
+button:hover{
+    background-color: lightgrey;
+}
+select{
+    border-radius: 5px;
+    border-color: grey;
+    border-width: thin;
+}
+select:hover{
+    border-color: black;
 }
