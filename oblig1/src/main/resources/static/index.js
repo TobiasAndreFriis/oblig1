@@ -1,34 +1,11 @@
 let filmer = [];
 
 
-function innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost){
-    let sjekk = true;
-    if (antall == null || antall === ""){
-        manglerInnhold("antall");
-        sjekk = false;
-    }
-    if(fornavn == null || fornavn === ""){
-        manglerInnhold("fornavn");
-        sjekk = false;
-    }
-    if (etternavn == null || etternavn === ""){
-        manglerInnhold("etternavn");
-        sjekk = false;
-    }
-    if(telefonnr == null || telefonnr === ""){
-        manglerInnhold("telefonnr");
-        sjekk = false;
-    }
-    if(epost == null || epost === ""){
-        manglerInnhold("epost");
-        sjekk = false;
-    }
-    return sjekk;
-}
 function manglerInnhold(input){
     document.getElementById(input+"Info").innerHTML = "Må skrive noe inn i "+input;
 }
 function fjernManglerInnhold(){
+    document.getElementById("filmerInfo").innerHTML = "";
     document.getElementById("antallInfo").innerHTML = "";
     document.getElementById("fornavnInfo").innerHTML = "";
     document.getElementById("etternavnInfo").innerHTML = "";
@@ -43,17 +20,28 @@ function fjernInnhold(){
     document.getElementById("telefonnr").value = "";
     document.getElementById("epost").value = "";
 }
-function antallValidering(){
-
+function fornavnValidering(fornavn){
+    const gyldigNavn = /^[a-zA-Z+æ+ø+å+Æ+Ø+Å]+$/;
+    if (fornavn.match(gyldigNavn)){
+        return true;
+    }
+    else{
+        document.getElementById("fornavnInfo").innerHTML = "Vennligst skriv inn et gyldig navn!";
+        return false;
+    }
 }
-function fornavnValidering(){
-
-}
-function etternavnValidering(){
-
+function etternavnValidering(etternavn){
+    const gyldigNavn = /^[a-åA-Å+æ+ø+å+Æ+Ø+Å]+$/;
+    if (etternavn.match(gyldigNavn)){
+        return true;
+    }
+    else{
+        document.getElementById("etternavnInfo").innerHTML = "Vennligst skriv inn et gyldig navn!";
+        return false;
+    }
 }
 function telefonnrValidering(telefonnr){
-    const gyldigTelefonnr = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    const gyldigTelefonnr = /^[0-9]{8}$/im;
     if(telefonnr.match(gyldigTelefonnr)){
         return true;
     }
@@ -72,15 +60,42 @@ function epostValidering(epost){
         return false;
     }
 }
-function gyldigInfoSjekker(film, antall, fornavn, etternavn, telefonnr, epost){
+function innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost){
     let gyldig = true;
-    if (innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost) === false){
+    if (film === ""){
+        document.getElementById("filmerInfo").innerHTML = "Vennligst velg en film!";
         gyldig = false;
     }
-    if (epostValidering(epost) === false){
+    if (antall === ""){
+        manglerInnhold("antall");
         gyldig = false;
     }
-    if (telefonnrValidering(telefonnr) === false){
+    if(fornavn === ""){
+        manglerInnhold("fornavn");
+        gyldig = false;
+    }
+    else if (fornavnValidering(fornavn) === false){
+        gyldig = false;
+    }
+    if (etternavn === ""){
+        manglerInnhold("etternavn");
+        gyldig = false;
+    }
+    else if (etternavnValidering(etternavn) === false){
+        gyldig = false;
+    }
+    if(telefonnr === ""){
+        manglerInnhold("telefonnr");
+        gyldig = false;
+    }
+    else if (telefonnrValidering(telefonnr) === false){
+        gyldig = false;
+    }
+    if(epost === ""){
+        manglerInnhold("epost");
+        gyldig = false;
+    }
+    else if (epostValidering(epost) === false){
         gyldig = false;
     }
     return gyldig;
@@ -93,7 +108,7 @@ function kjopBilett(){
     let etternavn = document.getElementById("etternavn").value;
     let telefonnr = document.getElementById("telefonnr").value;
     let epost = document.getElementById("epost").value;
-    if (gyldigInfoSjekker(film, antall, fornavn, etternavn, telefonnr, epost) === false){
+    if (innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost) === false){
         return;
     }
     let bestilling = [];
@@ -114,4 +129,3 @@ function slettBiletter(){
     document.getElementById("filmListe").innerText = "";
     fjernInnhold();
 }
-

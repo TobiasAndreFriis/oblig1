@@ -1,17 +1,6 @@
 input[type='number']{
     width: 30px;
 }
-label{
-    display: inline-block;
-    width: 70px;
-}
-.label-antall{
-    width: 45px;
-}
-.label-mangler{
-    width: 230px;
-    color: red;
-}
 input{
     margin-bottom: 10px;
 }
@@ -20,6 +9,17 @@ input:hover{
     border-left-color: darkgrey;
     border-bottom-color: dimgray;
     border-right-color: dimgray;
+}
+label{
+    display: inline-block;
+    width: 70px;
+}
+.label-antall{
+    width: 45px;
+}
+.label-mangler{
+    width: 300px;
+    color: red;
 }
 body{
     font-weight: bold;
