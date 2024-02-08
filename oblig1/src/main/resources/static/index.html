@@ -5,47 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kinobiletter</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        input[type='number']{
+            width: 30px;
+        }
+        .label-mangler{
+            width: 300px;
+            color: red;
+        }
+        body{
+            font-weight: bold;
+            font-family: "Times New Roman";
+        }
+    </style>
 </head>
 <body>
 <main>
-    <h1>Bestilling av kinobiletter</h1>
-    <label for="filmer">Velg film: </label>
-    <select name="filmer" id="filmer">
-        <option value=""></option>
-        <option value="Harry Potter">Harry Potter</option>
-        <option value="James Bond">James Bond</option>
-        <option value="Star Wars">Star Wars</option>
-        <option value="Avatar">Avatar</option>
-    </select>
-    <label for="filmer" id="filmerInfo" class="label-mangler"></label>
+    <h1>Bestilling av kinobilletter</h1>
+    <table>
+        <tr><td>Velg film: </td>
+            <td><select name="filmer" id="filmer">
+                <option value=""></option>
+                <option value="Harry Potter">Harry Potter</option>
+                <option value="James Bond">James Bond</option>
+                <option value="Star Wars">Star Wars</option>
+                <option value="Avatar">Avatar</option>
+            </select>
+                <label for="filmer" id="filmerInfo" class="label-mangler"></label></td>
+        </tr>
+        <tr><td><br></td></tr>
+        <tr>
+            <td>Antall </td>
+            <td><input type="number" id="antall" name="antall" min="0">
+                <label for="antall" id="antallInfo" class="label-mangler"></label></td>
+        </tr>
+        <tr><td><br></td></tr>
+        <tr>
+            <td>Fornavn </td>
+            <td><input type="text" id="fornavn" name="fornavn">
+                <label for="fornavn" id="fornavnInfo" class="label-mangler"></label></td>
+        </tr>
+        <tr>
+            <td>Etternavn</td>
+            <td><input type="text" id="etternavn" name="etternavn">
+                <label for="etternavn" id="etternavnInfo" class="label-mangler"></label></td>
+        </tr>
+        <tr>
+            <td>Telefonnr</td>
+            <td><input type="text" id="telefonnr" name="telefonnr">
+                <label for="telefonnr" id="telefonnrInfo" class="label-mangler"></label></td>
+        </tr>
+        <tr>
+            <td>Epost</td>
+            <td><input type="text" id="epost" name="epost">
+                <label for="epost" id="epostInfo" class="label-mangler"></label></td>
+        </tr>
+    </table>
+    <br>
+    <button id="kjøpBillettKnapp" onclick="kjopBillett()">Kjøp billett</button>
     <br><br>
-    <label for="antall" class="label-antall">Antall </label>
-    <input type="number" id="antall" name="antall" min="0">
-    <label for="antall" id="antallInfo" class="label-mangler"></label>
-    <br><br>
-    <label for="fornavn">Fornavn </label>
-    <input type="text" id="fornavn" name="fornavn">
-    <label for="fornavn" id="fornavnInfo" class="label-mangler"></label>
-    <br>
-    <label for="etternavn">Etternavn </label>
-    <input type="text" id="etternavn" name="etternavn">
-    <label for="etternavn" id="etternavnInfo" class="label-mangler"></label>
-    <br>
-    <label for="telefonnr">Telefonnr </label>
-    <input type="text" id="telefonnr" name="telefonnr">
-    <label for="telefonnr" id="telefonnrInfo" class="label-mangler"></label>
-    <br>
-    <label for="epost">Epost </label>
-    <input type="text" id="epost" name="epost">
-    <label for="epost" id="epostInfo" class="label-mangler"></label>
-    <br>
-    <button id="kjøpBilettKnapp" onclick="kjopBilett()">Kjøp bilett</button>
-    <br><br>
-    <h2>Alle biletter</h2>
+    <h2>Alle billetter</h2>
     <ul id="filmListe"></ul>
-    <button id="slettBiletterKnapp" onclick="slettBiletter()">Slett alle bilettene</button>
+    <button id="slettBilletterKnapp" onclick="slettBilletter()">Slett alle billettene</button>
 </main>
-<script src="index.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

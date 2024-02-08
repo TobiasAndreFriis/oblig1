@@ -1,6 +1,4 @@
 let filmer = [];
-
-
 function manglerInnhold(input){
     document.getElementById(input+"Info").innerHTML = "Må skrive noe inn i "+input;
 }
@@ -100,7 +98,7 @@ function innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost){
     }
     return gyldig;
 }
-function kjopBilett(){
+function kjopBillett(){
     fjernManglerInnhold();
     let film = document.getElementById("filmer").value;
     let antall = document.getElementById("antall").value;
@@ -118,12 +116,13 @@ function kjopBilett(){
     liste.innerText = "";
     for (i = 0; i < filmer.length; i++){
         let li = document.createElement('li');
-        li.innerText = filmer[i][0] + ", Antall: " + filmer[i][1];
+        li.innerText = filmer[i][0] + ", Antall: " + filmer[i][1] + ", Navn: " +
+            filmer[i][2] + " " + filmer[i][3] + ", Telefonnr: " + filmer[i][4] + ", Epost: " + filmer[i][5];
         liste.appendChild(li);
     }
     fjernInnhold();
 }
-function slettBiletter(){
+function slettBilletter(){
     fjernManglerInnhold();
     filmer = [];
     document.getElementById("filmListe").innerText = "";
