@@ -48,7 +48,7 @@ function etternavnValidering(etternavn){
     }
 }
 function telefonnrValidering(telefonnr){
-    const gyldigTelefonnr = /^[0-9]{8}$/im;
+    const gyldigTelefonnr = /^[0-9]{8}$/;
     if(telefonnr.match(gyldigTelefonnr)){
         return true;
     }
@@ -58,6 +58,7 @@ function telefonnrValidering(telefonnr){
     }
 }
 function epostValidering(epost){
+    //Fant validering for epost på: https://www.simplilearn.com/tutorials/javascript-tutorial/email-validation-in-javascript
     const gyldigEpost = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(epost.match(gyldigEpost)){
         return true;
@@ -110,7 +111,7 @@ function innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost){
     return gyldig;
 }
 
-
+//Kjører logikken for å legge til en billett
 function kjopBillett(){
     fjernManglerInnhold();
     let film = document.getElementById("filmer").value;
@@ -119,15 +120,22 @@ function kjopBillett(){
     let etternavn = document.getElementById("etternavn").value;
     let telefonnr = document.getElementById("telefonnr").value;
     let epost = document.getElementById("epost").value;
+
+    //Hvis innholdSjekk gir ut false, vil kjopBillett stoppe
     if (innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost) === false){
         return;
     }
+
     let bestilling = [];
+    //Legger alle verdier fra input i et array, film[0] antall[1] osv...
     bestilling.push(film, antall, fornavn, etternavn, telefonnr, epost);
     filmer.push(bestilling);
+
+    //Printer ut film bestillingene i en liste
     let liste = document.getElementById("filmListe");
     liste.innerText = "";
     for (i = 0; i < filmer.length; i++){
+        //Lager et liste element og legger den inni en unordered list
         let li = document.createElement('li');
         li.innerText = filmer[i][0] + ", Antall: " + filmer[i][1] + ", Navn: " +
             filmer[i][2] + " " + filmer[i][3] + ", Telefonnr: " + filmer[i][4] + ", Epost: " + filmer[i][5];
@@ -135,6 +143,8 @@ function kjopBillett(){
     }
     fjernInnhold();
 }
+
+//Tømmer film bestillinger listen og arrayet
 function slettBilletter(){
     fjernManglerInnhold();
     filmer = [];

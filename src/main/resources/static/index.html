@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kinobiletter</title>
     <style>
+        /*Endrer bredden på antall input boksen*/
         input[type='number']{
             width: 30px;
         }
+
+        /*Bredden og tekst fargen til info labelene*/
         .label-mangler{
             width: 300px;
             color: red;
         }
+
+        /*Endrer font på all tekst i body*/
         body{
             font-weight: bold;
             font-family: "Times New Roman";
@@ -23,6 +28,8 @@
 <main>
     <h1>Bestilling av kinobilletter</h1>
     <table>
+
+        <!--Film selector med mangler innhold label-->
         <tr><td>Velg film: </td>
             <td><select name="filmer" id="filmer">
                 <option value=""></option>
@@ -34,27 +41,37 @@
                 <label for="filmer" id="filmerInfo" class="label-mangler"></label></td>
         </tr>
         <tr><td><br></td></tr>
+
+        <!--Antall billetter input boks med mangler innhold label-->
         <tr>
             <td>Antall </td>
             <td><input type="number" id="antall" name="antall" min="0">
                 <label for="antall" id="antallInfo" class="label-mangler"></label></td>
         </tr>
         <tr><td><br></td></tr>
+
+        <!--Fornavn input boks med mangler innhold label-->
         <tr>
             <td>Fornavn </td>
             <td><input type="text" id="fornavn" name="fornavn">
                 <label for="fornavn" id="fornavnInfo" class="label-mangler"></label></td>
         </tr>
+
+        <!--Etternavn input boks med mangler innhold label-->
         <tr>
             <td>Etternavn</td>
             <td><input type="text" id="etternavn" name="etternavn">
                 <label for="etternavn" id="etternavnInfo" class="label-mangler"></label></td>
         </tr>
+
+        <!--Telefonnr input boks med mangler innhold label-->
         <tr>
             <td>Telefonnr</td>
             <td><input type="text" id="telefonnr" name="telefonnr">
                 <label for="telefonnr" id="telefonnrInfo" class="label-mangler"></label></td>
         </tr>
+
+        <!--Epost input boks med mangler innhold label-->
         <tr>
             <td>Epost</td>
             <td><input type="text" id="epost" name="epost">
