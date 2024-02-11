@@ -1,7 +1,12 @@
+//Opprettelse av arrayet med bestillinger av filmer
 let filmer = [];
+
+//Printer tekst hvis det mangler innhold
 function manglerInnhold(input){
     document.getElementById(input+"Info").innerHTML = "Må skrive noe inn i "+input;
 }
+
+//Fjerner teksten fra mangler info label i rød tekst
 function fjernManglerInnhold(){
     document.getElementById("filmerInfo").innerHTML = "";
     document.getElementById("antallInfo").innerHTML = "";
@@ -10,6 +15,8 @@ function fjernManglerInnhold(){
     document.getElementById("telefonnrInfo").innerHTML = "";
     document.getElementById("epostInfo").innerHTML = "";
 }
+
+//Fjerner innhold i input bokser
 function fjernInnhold(){
     document.getElementById("filmer").value = "";
     document.getElementById("antall").value = "";
@@ -18,6 +25,8 @@ function fjernInnhold(){
     document.getElementById("telefonnr").value = "";
     document.getElementById("epost").value = "";
 }
+
+//Valideringer på input verdier
 function fornavnValidering(fornavn){
     const gyldigNavn = /^[a-zA-Z+æ+ø+å+Æ+Ø+Å]+$/;
     if (fornavn.match(gyldigNavn)){
@@ -58,10 +67,12 @@ function epostValidering(epost){
         return false;
     }
 }
+
+//Kjører alle valideringer og sjekker om det mangler innhold
 function innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost){
     let gyldig = true;
     if (film === ""){
-        document.getElementById("filmerInfo").innerHTML = "Vennligst velg en film!";
+        manglerInnhold("filmer");
         gyldig = false;
     }
     if (antall === ""){
@@ -98,6 +109,8 @@ function innholdSjekk(film, antall, fornavn, etternavn, telefonnr, epost){
     }
     return gyldig;
 }
+
+
 function kjopBillett(){
     fjernManglerInnhold();
     let film = document.getElementById("filmer").value;
